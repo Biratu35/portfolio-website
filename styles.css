@@ -93,6 +93,21 @@ footer {
   color: white;
 }
 
+#welcome-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: #f7f7f7;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+
 /* Media Query for smaller screens */
 @media only screen and (max-width: 720px) {
   #navbar {
@@ -102,6 +117,7 @@ footer {
   .project-tile {
     width: 90%;
   }
+
   #welcome-section h1 {
     font-size: 2rem;
   }
