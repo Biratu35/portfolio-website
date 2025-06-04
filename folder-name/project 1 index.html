@@ -3,21 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grace Church</title>
+  <title>Ethiopian Orthodox Tewahedo Church</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #2d3e50;
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .top-right-image,
+    .side-image.left {
+      position: absolute;
+    }
+
+    .top-right-image {
+      top: 10px;
+      right: 10px;
+      width: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .top-right-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .side-image.left {
+      top: 10px;
+      left: 10px;
+      height: 80px;
+      width: auto;
+    }
+
+    .side-image.left img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    nav {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background: #3f5163;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #556b84;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/eotc%20church.jpg') center/cover no-repeat;
+      padding: 5rem 1rem;
+      text-align: center;
+      color: white;
+    }
+
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input,
+    form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    form button {
+      padding: 0.75rem;
+      background: #2d3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background: #3d4f64;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #2d3e50;
+      color: #ccc;
+    }
+
+    .contact-links {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    .contact-links a {
+      margin: 0 1rem;
+      color: #2d3e50;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="side-image left">
-  <img src="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/eotc%20cross.jpg" alt="Decoration" />
-</div>
+      <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/eotc%20sillase.jpg" alt="Decoration" />
+    </div>
 
-<div class="top-right-image">
-  <img src="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/EOTC%20images.jpg" alt="Church Logo" />
-</div>
-
-    <h1>Grace Church</h1>
+    <div class="top-right-image">
+      <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/EOTC%20images.jpg" alt="Church Logo" />
+    </div>
+    <h1>Ethiopian Orthodox Tewahedo Church</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -27,18 +180,38 @@
   </header>
 
   <section class="hero">
-    <h2>Welcome to Grace Church</h2>
-    <p>A place of faith, hope, and love</p>
+    <h2>Welcome to Ethiopian Orthodox Tewahedo Church</h2>
+    <p>"Come to me, all you who are weary and burdened..." Matthew 11:28-30</p>
+    <p>"እናንተ ደካሞች..." ማቴ 11:28-30</p>
   </section>
 
   <section id="about">
     <h2>About Us</h2>
-    <p>We are a community that believes in the transforming power of God's love.</p>
+    <p>The Ethiopian Orthodox Tewahedo Church is the largest of the Oriental Orthodox Churches...</p>
+    <h3>Our Mission</h3>
+    <p>"Therefore go and make disciples..." Matthew 28:19-20</p>
+    <p>"እንግዲህ ሂዱና አሕዛብን..." ማቴ 28:19-20</p>
   </section>
 
   <section id="services">
+    <h2>Monday - Sunday</h2>
+    <p>Matins or Morning Prayer - 6:00 AM to 8:00 AM</p>
     <h2>Sunday Services</h2>
-    <p>Join us every Sunday at 10 AM at our main campus.</p>
+    <p>Mahlet (Hymnal prayer): 5:00 AM</p>
+    <p>Baptismal Service: 7:00 AM</p>
+    <p>Prayer of the Covenant: 7:45 AM</p>
+    <p>Divine Liturgy (Qidasse): 8:30 AM</p>
+    <p>Choir singing and sermon: 11:00 AM to 12:30 PM</p>
+    <h2>Fasting in EOTC</h2>
+    <ol>
+      <li>The Great Fast/Lent (ዐብይ ጾም)</li>
+      <li>Wednesdays and Fridays</li>
+      <li>Nineveh</li>
+      <li>Gehad</li>
+      <li>The fast of the prophets</li>
+      <li>The fast of the Apostles</li>
+      <li>The fast of the Assumption of Mary</li>
+    </ol>
   </section>
 
   <section id="events">
@@ -57,11 +230,14 @@
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
+    <div class="contact-links">
+      <a href="https://t.me/pagumensc" target="_blank">Telegram</a>
+      <a href="mailto:info@ethiopianorthodox.org" target="_blank">Email</a>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Grace Church. All rights reserved.</p>
+    <p>&copy; 2025 Ethiopian Orthodox Tewahedo Church. All rights reserved.</p>
   </footer>
 </body>
 </html>
-
