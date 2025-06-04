@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ethiopian Coffee Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base styles */
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: white;
+      color: #333;
+    }
+    header {
+      background: url('https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/arabica-darker-roast-single-origin-coffee-beans.webp') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #6f4e37;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #d2b48c;
+    }
+    #dark-mode-toggle {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 1.25rem;
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+    }
+    #dark-mode-toggle:hover {
+      color: #d2b48c;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .contact, .hours {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border: none;
+      margin-top: 1rem;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      section {
+        padding: 1rem;
+      }
+    }
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode header {
+      background: url('https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/arabica-darker-roast-single-origin-coffee-beans.webp') center/cover no-repeat;
+      filter: brightness(0.6);
+      color: #e0e0e0;
+    }
+    body.dark-mode nav {
+      background: #3e2e1e;
+    }
+    body.dark-mode nav a {
+      color: #e0e0e0;
+    }
+    body.dark-mode nav a:hover {
+      color: #f5deb3;
+    }
+    body.dark-mode footer {
+      background: #222;
+      color: #e0e0e0;
+    }
+    body.dark-mode .gallery img {
+      filter: brightness(0.85);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ethiopian Coffee Cafe</h1>
+    <p>Your daily dose of happiness</p>
+  </header>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+  </nav>
+  <section id="home">
+    <h2>Welcome to Ethiopian Coffee Cafe</h2>
+    <p>Experience freshly brewed coffee in a cozy and friendly environment.</p>
+  </section>
+  <section id="menu">
+    <h2>Our Menu</h2>
+    <ul>
+      <li>Espresso - $2.50</li>
+      <li>Latte - $3.50</li>
+      <li>Cappuccino - $3.50</li>
+      <li>Mocha - $4.00</li>
+      <li>Cold Brew - $3.00</li>
+    </ul>
+  </section>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Ethiopian Coffee Cafe is a locally owned coffee shop that prides itself in sourcing quality beans and creating a welcoming atmosphere for all coffee lovers.</p>
+  </section>
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/Thumbnail-Coffee-Station-DSC_0943-200x200.jpg" alt="coffee1" />
+    <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/images.jpg" alt="coffee2" />
+    <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/white-cup-with-cappuccino-on-white-background-coffee-drink-with-latte-art-ai-generated-photo.jpg" alt="coffee3" />
+  </section>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact">
+      <p>Email: lemessabiratu@gmail.com</p>
+      <p>Phone: 0935728212</p>
+    </div>
+    <div class="hours">
+      <h3>Opening Hours</h3>
+      <p>Monday - Friday: 7 AM - 8 PM</p>
+      <p>Saturday - Sunday: 8 AM - 10 PM</p>
+    </div>
+    <h3>Our Location</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31424.63873120252!2d34.5669632!3d10.092544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sam!2set!4v1748624537026!5m2!1sam!2set" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  <footer>
+    <p>&copy; 2025 Ethiopian Coffee Cafe. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark mode toggle
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')){
+        toggleButton.textContent = '☀️';
+      } else {
+        toggleButton.textContent = '🌙';
+      }
+    });
+
+    // Scroll fade-in animation
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom){
+          section.classList.add('visible');
+        } else {
+          section.classList.remove('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+  </script>
+</body>
+</html>
