@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ethiopian Orthodox Tewahedo Church</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -14,52 +14,45 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #f0f4f8;
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
       background: #2d3e50;
       color: white;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      padding: 2rem;
       position: relative;
+      text-align: center;
     }
 
-    .top-right-image,
-    .side-image.left {
+    .logo {
       position: absolute;
-    }
-
-    .top-right-image {
-      top: 10px;
-      right: 10px;
-      width: 80px;
+      top: 1rem;
+      left: 1rem;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       overflow: hidden;
     }
 
-    .top-right-image img {
+    .logo img {
       width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .side-image.left {
-      top: 10px;
-      left: 10px;
-      height: 80px;
-      width: auto;
-    }
-
-    .side-image.left img {
       height: 100%;
       object-fit: cover;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      background: none;
+      border: none;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
     }
 
     nav {
@@ -75,24 +68,24 @@
       text-decoration: none;
       padding: 0.5rem 1rem;
       background: #3f5163;
-      border-radius: 5px;
+      border-radius: 6px;
       transition: background 0.3s ease;
     }
 
     nav a:hover {
-      background: #556b84;
+      background: #4f6175;
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
         url('https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/eotc%20church.jpg') center/cover no-repeat;
-      padding: 5rem 1rem;
-      text-align: center;
+      padding: 6rem 1rem;
       color: white;
+      text-align: center;
     }
 
     section {
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       max-width: 1000px;
       margin: auto;
     }
@@ -104,7 +97,7 @@
     }
 
     h3 {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin-top: 1.5rem;
     }
 
@@ -132,19 +125,12 @@
     }
 
     form button:hover {
-      background: #3d4f64;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #2d3e50;
-      color: #ccc;
+      background: #3f5163;
     }
 
     .contact-links {
       text-align: center;
-      margin: 1rem 0;
+      margin-top: 1rem;
     }
 
     .contact-links a {
@@ -153,25 +139,39 @@
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #2d3e50;
+      color: #ccc;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
       nav {
+        display: none;
         flex-direction: column;
-        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      nav.active {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="side-image left">
-      <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/eotc%20sillase.jpg" alt="Decoration" />
-    </div>
-
-    <div class="top-right-image">
+    <div class="logo">
       <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/EOTC%20images.jpg" alt="Church Logo" />
     </div>
     <h1>Ethiopian Orthodox Tewahedo Church</h1>
-    <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+    <nav id="main-nav">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#events">Events</a>
@@ -179,42 +179,30 @@
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero" data-aos="fade-in">
     <h2>Welcome to Ethiopian Orthodox Tewahedo Church</h2>
     <p>"Come to me, all you who are weary and burdened..." Matthew 11:28-30</p>
-    <p>"እናንተ ደካሞች..." ማቴ 11:28-30</p>
+    <p>"ዬናንተ ደካሞች..." ማቴ 11:28-30</p>
   </section>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Us</h2>
-    <p>The Ethiopian Orthodox Tewahedo Church is the largest of the Oriental Orthodox Churches...</p>
+    <p>The Ethiopian Orthodox Tewahedo Church is one of the oldest Christian traditions in the world.</p>
     <h3>Our Mission</h3>
     <p>"Therefore go and make disciples..." Matthew 28:19-20</p>
-    <p>"እንግዲህ ሂዱና አሕዛብን..." ማቴ 28:19-20</p>
+    <p>"ዬንግዝህ ሂዱንና አሕዋብን..." ማቴ 28:19-20</p>
   </section>
 
-  <section id="services">
-    <h2>Monday - Sunday</h2>
-    <p>Matins or Morning Prayer - 6:00 AM to 8:00 AM</p>
-    <h2>Sunday Services</h2>
-    <p>Mahlet (Hymnal prayer): 5:00 AM</p>
-    <p>Baptismal Service: 7:00 AM</p>
-    <p>Prayer of the Covenant: 7:45 AM</p>
-    <p>Divine Liturgy (Qidasse): 8:30 AM</p>
-    <p>Choir singing and sermon: 11:00 AM to 12:30 PM</p>
-    <h2>Fasting in EOTC</h2>
-    <ol>
-      <li>The Great Fast/Lent (ዐብይ ጾም)</li>
-      <li>Wednesdays and Fridays</li>
-      <li>Nineveh</li>
-      <li>Gehad</li>
-      <li>The fast of the prophets</li>
-      <li>The fast of the Apostles</li>
-      <li>The fast of the Assumption of Mary</li>
-    </ol>
+  <section id="services" data-aos="fade-up">
+    <h2>Services</h2>
+    <ul>
+      <li>Matins (6:00 AM - 8:00 AM)</li>
+      <li>Mahlet (5:00 AM), Baptism (7:00 AM), Liturgy (8:30 AM)</li>
+      <li>Fasting: Lent, Wednesdays/Fridays, Nineveh, Apostles, Assumption of Mary</li>
+    </ul>
   </section>
 
-  <section id="events">
+  <section id="events" data-aos="fade-up">
     <h2>Upcoming Events</h2>
     <ul>
       <li>Youth Retreat - June 15</li>
@@ -222,7 +210,7 @@
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" data-aos="fade-up">
     <h2>Contact Us</h2>
     <form action="https://formsubmit.co/your-email@example.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -239,5 +227,15 @@
   <footer>
     <p>&copy; 2025 Ethiopian Orthodox Tewahedo Church. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('main-nav').classList.toggle('active');
+    }
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
