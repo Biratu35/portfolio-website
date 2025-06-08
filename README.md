@@ -33,4 +33,4 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/Biratu35/portfolio-website.git
