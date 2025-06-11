@@ -2,191 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Biratu's Portfolio</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Raleway', sans-serif;
-      background: linear-gradient(135deg, #fefcea, #f1daff);
-      color: #333;
-      line-height: 1.6;
-    }
-
-    #navbar {
-      position: sticky;
-      top: 0;
-      width: 100%;
-      background: rgba(34, 34, 34, 0.85);
-      backdrop-filter: blur(10px);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      border-bottom: 1px solid #444;
-    }
-
-    #navbar ul {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
-    }
-
-    #navbar a {
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    #navbar a:hover {
-      background: #444;
-    }
-
-    #welcome-section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    #projects, #about, #contact {
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    #projects h2, #about h2, #contact h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-tile {
-      background: white;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-tile:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-
-    form input, form textarea {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 1rem;
-    }
-
-    form button {
-      background-color: #222;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #444;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: #222;
-      color: white;
-    }
-
-    @media (max-width: 720px) {
-      #navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #navbar ul {
-        width: 100%;
-        justify-content: space-around;
-      }
-
-      form input, form textarea {
-        width: 90%;
-      }
-    }
-  </style>
+  <!-- Your Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav id="navbar">
     <h1>Biratu</h1>
-    <ul>
+
+    <div
+      class="hamburger"
+      id="hamburger"
+      role="button"
+      aria-label="Toggle navigation"
+      aria-controls="nav-menu"
+      aria-expanded="false"
+      tabindex="0"
+    >
+      <div></div><div></div><div></div>
+    </div>
+
+    <ul id="nav-menu">
       <li><a href="#welcome-section">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#skills">My Skills</a></li>
+      <li><a href="#process">How I Work</a></li>
+      <li><a href="#testimonials">What People Say</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+
+    <button id="dark-toggle" aria-pressed="false" aria-label="Toggle dark mode">
+      Dark Mode
+    </button>
   </nav>
 
-  <section id="welcome-section">
-    <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/photo_2025-02-19_13-46-43.jpg" alt="Biratu's profile photo" class="profile-img" />
-    <h1>Hi, I'm Biratu Lemessa</h1>
-    <p>Aspiring Web Designer with a Passion for Clean, Functional Design</p>
-    <p>Bridging Creativity and Logic with a Background in Mathematics</p>
+  <section id="welcome-section" data-aos="fade-in">
+    <img
+      src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/photo_2025-02-19_13-46-43.jpg"
+      alt="Biratu's profile photo"
+      class="profile-img"
+      data-aos="zoom-in"
+      data-aos-delay="200"
+    />
+    <h1 data-aos="fade-up" data-aos-delay="300">Hi, I'm Biratu Lemessa</h1>
+    <p data-aos="fade-up" data-aos-delay="400">Aspiring Web Designer with a Passion for Clean, Functional Design</p>
+    <p data-aos="fade-up" data-aos-delay="500">Bridging Creativity and Logic with a Background in Mathematics</p>
+  </section>
+
+  <section id="about" data-aos="fade-right">
+    <h2><i class="fas fa-user-circle"></i> About Me</h2>
+    <p>I’m a web designer with a strong foundation in mathematics. My math background sharpens my problem-solving, logical thinking, and attention to detail — all essential skills in creating clean, functional, and responsive websites. I specialize in creating clean, responsive websites and intuitive user experiences. I’m continuously learning new web technologies like HTML, CSS, and JavaScript, and applying my strong analytical skills from mathematics to solve complex problems</p>
   </section>
 
   <section id="projects" data-aos="fade-up">
-    <h2>My Projects</h2>
+    <h2><i class="fas fa-laptop-code"></i> My Projects</h2>
     <div class="project-grid">
-      <div class="project-tile">
-        <a href="https://biratu-project1.netlify.app/" target="_blank">
+      <div class="project-tile" data-aos="zoom-in" data-aos-delay="150">
+         <a href="https://biratu-project1.netlify.app/" target="_blank">
           <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/screen%20shoot%20of%20project%201%20eotc.jpg" alt="Church Project" style="width:100%; border-radius: 8px;" />
           <p>Ethiopian Orthodox Tewahedo Church</p>
         </a>
@@ -195,39 +78,181 @@
         <a href="https://biratu-project2.netlify.app/" target="_blank">
           <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/Screenshot%202025-05-30%20100820.jpg" alt="Cafe Project" style="width:100%; border-radius: 8px;" />
           <p>Ethiopian Coffee Cafe</p>
-        </a>
+        </a> 
       </div>
     </div>
   </section>
 
-  <section id="about" data-aos="fade-right">
-    <h2>About Me</h2>
-    <p>I’m a web designer with a strong foundation in mathematics. My math background sharpens my problem-solving, logical thinking, and attention to detail — all essential skills in creating clean, functional, and responsive websites. I specialize in creating clean, responsive websites and intuitive user experiences. I’m continuously learning new web technologies like HTML, CSS, and JavaScript, and applying my strong analytical skills from mathematics to solve complex problems.</p>
+  <section id="certifications" data-aos="flip-up">
+    <h2>🎓 Certifications</h2>
+    <div class="cert-list">
+      <div class="cert-item" data-aos="fade-up" data-aos-delay="150">
+        <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/freeCodeCamp.png" alt="FreeCodeCamp Logo">
+        <a href="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/freecodecamp.org_certification_Bira35_responsive-web-design.pdf" target="_blank" rel="noopener noreferrer">Responsive Web Design Certificate</a>
+      </div>
+      <div class="cert-item">
+        <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/200-2006804_about-edplus-at-arizona-state-university-arizona-state-university.png" alt="Arizona State University Logo">
+        <a href="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/biratu's%20certificate%20e-learning.pdf" target="_blank" rel="noopener noreferrer">Master Class for Teaching Online (Open edX) Certificate
+</a>
+      </div>
+      <div class="cert-item">
+        <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/Udacity_logo_(light_blue_version).png" alt="Udacity Logo">
+        <a href="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/Android%20developer%20fundamentals.pdf" target="_blank" rel="noopener noreferrer">Android Developer Fundamentals Certificate</a>
+      </div>
+      <div class="cert-item">
+        <img src=https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/Udacity_logo_(light_blue_version).png alt="Udacity Logo">
+        <a href="https://github.com/Biratu35/portfolio-website/blob/main/folder-name/Programming%20fundamentals.pdf" target="_blank" rel="noopener noreferrer">Programming Fundamentals Certificate</a></div>
+    </div>
   </section>
 
-  <section id="contact" data-aos="fade-left">
-    <h2>Contact Me</h2>
-    <p><a href="https://www.linkedin.com/in/biratu-lemessa-15a4b4294" target="_blank">LinkedIn</a> | 
-      <a href="https://t.me/Bira35" target="_blank">Telegram</a> | 
-      <a href="https://wa.me/+251935728212" target="_blank">WhatsApp</a> | 
-      <a href="https://mail.google.com/mail/?view=cm&to=lemessabiratu@gmail.com" target="_blank">Email Me</a>
-    </p>
-    <p><a href="https://github.com/Biratu35" target="_blank">Visit my GitHub</a> | 
-      <a href="https://github.com/Biratu35/portfolio-website/blob/main/My%20CV-2.pdf" target="_blank">Download My CV</a>
-    </p>
+  <section id="skills" data-aos="fade-up">
+    <h2>💼 My Skills</h2>
+    <div class="skills-grid" data-aos="fade-up" data-aos-delay="150">  <!-- Web Design Skills -->
+  <h3>🎨 Web Design Skills</h3>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <i class="fab fa-html5"></i>
+      <span>Semantic HTML5</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-css3-alt"></i>
+      <span>Modern CSS3 + Flexbox & Grid</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-mobile-alt"></i>
+      <span>Responsive Design for All Devices</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-js-square"></i>
+      <span>Basic JavaScript Interactivity</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-github"></i>
+      <span>Version Control with Git & GitHub</span>
+    </div>
+    <div class="skill-item">
+      <i class="fab fa-figma"></i>
+      <span>UI Mockups with Figma</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-envelope"></i>
+      <span>Form Integration (FormSubmit)</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-rocket"></i>
+      <span>Website Deployment (Netlify, GitHub Pages)</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-search"></i>
+      <span>SEO Basics</span>
+    </div>
+  </div>
+
+  <!-- Math & Scientific Skills -->
+  <h3>📐 Math & Scientific Skills</h3>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" alt="MATLAB Icon" class="skill-icon" />
+      <span>MATLAB Programming</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-superscript"></i>
+      <span>LaTeX for Scientific Documents</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-square-root-alt"></i>
+      <span>Mathematical Analysis</span>
+    </div>
+    <div class="skill-item">
+      <i class="fas fa-chart-line"></i>
+      <span>Data Analysis & Problem Solving</span>
+    </div>
+  </div></div>
+  </section>
+
+  <section id="process" data-aos="fade-up">
+    <h2>🛠️ How I Work</h2>
+    <div class="process-steps">    <div class="step">
+      <h3>1. Understand Your Needs</h3>
+      <p>I listen carefully to your goals, audience, and design ideas.</p>
+    </div>
+    <div class="step">
+      <h3>2. Plan & Design</h3>
+      <p>I sketch ideas, build wireframes or mockups, and confirm before building.</p>
+    </div>
+    <div class="step">
+      <h3>3. Develop & Build</h3>
+      <p>I use clean, responsive HTML, CSS, and JavaScript to bring the design to life.</p>
+    </div>
+    <div class="step">
+      <h3>4. Review & Revise</h3>
+      <p>I offer 1–2 rounds of revisions based on your feedback.</p>
+    </div>
+    <div class="step">
+      <h3>5. Launch & Support</h3>
+      <p>I help you deploy the site (Netlify or GitHub Pages) and offer support after launch.</p>
+    </div></div>
+  </section>
+
+  <section id="testimonials" data-aos="fade-up">
+    <h2>🌟 What People Say</h2>
+    <div class="testimonials-container"><div class="testimonial">
+      <p>"Biratu is a highly skilled and dependable web designer. He turned our ideas into a clean, responsive website."</p>
+      <h4>- John Doe, Church Coordinator</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Excellent communication and a strong understanding of both design and user experience. Highly recommend!"</p>
+      <h4>- Sarah M., Small Business Owner</h4>
+    </div></div>
+  </section>
+
+  <section id="cta" data-aos="fade-up">
+    <div class="cta-content">    <h2>🚀 Let's Build Something Great Together!</h2>
+    <p>If you're looking for a passionate web designer with a strong background in logic and problem solving, let's connect!</p>
+    <a href="#contact" class="cta-button">📩 Contact Me Now</a></div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2><i class="fas fa-phone"></i> Contact Me</h2>
+
+   <div class="social-links">
+  <a href="https://www.linkedin.com/in/biratu-lemessa-15a4b4294" target="_blank" title="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="https://t.me/Bira35" target="_blank" title="Telegram">
+    <i class="fab fa-telegram"></i>
+  </a>
+  <a href="https://wa.me/+251935728212" target="_blank" title="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="mailto:lemessabiratu@gmail.com" title="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://github.com/Biratu35" target="_blank" title="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+
+  <a href="https://github.com/Biratu35/portfolio-website/blob/main/My%20CV-2.pdf" target="_blank" title="Download CV">
+    <i class="fas fa-file-download"></i>
+  </a>
+</div>
+ 
+    
     <form action="https://formsubmit.co/lemessabiratu@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name"><br>
-      <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email"><br>
-      <textarea name="message" placeholder="Your Message" required aria-label="Your Message"></textarea><br>
-      <button type="submit">Send</button>
+      <input type="text" name="name" placeholder="Your Name" required data-aos="fade-right" data-aos-delay="100">
+      <input type="email" name="email" placeholder="Your Email" required data-aos="fade-right" data-aos-delay="200">
+      <textarea name="message" placeholder="Your Message" required data-aos="fade-right" data-aos-delay="300"></textarea>
+      <button type="submit" data-aos="fade-up" data-aos-delay="400">Send</button>
     </form>
   </section>
 
-  <footer>
+  <footer data-aos="fade-up">
     <p>&copy; 2025 Biratu Lemessa. All rights reserved.</p>
   </footer>
 
+  <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <!-- Your JS -->
+  <script src="script.js"></script>
 </body>
 </html>
