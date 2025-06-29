@@ -14,6 +14,131 @@
   --accent-color: #3b82f6;
   --icon-filter: none;
 }
+
+#welcome-section {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.wave-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.wave-bg svg {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  left: -50%;
+  bottom: 0;
+}
+
+/* Animate waves with different speeds */
+.wave {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: waveMove;
+}
+
+.wave1 {
+  animation-duration: 12s;
+}
+
+.wave2 {
+  animation-duration: 15s;
+}
+
+.wave3 {
+  animation-duration: 20s;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+.blob-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.blob-bg svg {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  left: -50%;
+  bottom: 0;
+  animation: blobFloat 20s linear infinite;
+}
+
+@keyframes blobFloat {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.section-with-blob {
+  position: relative;
+  z-index: 1;
+  padding: 4rem 2rem;
+  color: #222;
+  text-align: center;
+  overflow: hidden;
+}
+
+
+
+.electric-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.electric-bg svg {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  left: -50%;
+  bottom: 0;
+  animation: electricWave 18s linear infinite;
+}
+
+@keyframes electricWave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.section-electric {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 2rem;
+  color: rgb(2,179,228);
+  text-align: center;
+  overflow: hidden;
+}
+
+
+
 body.menu-open {
   overflow: hidden;
 }
@@ -152,7 +277,8 @@ body {
 /* Headings & Sections */
 h1 { font-size:2.5rem; font-family:'Poppins'; transition:color 0.5s; }
 section { padding:3rem 2rem; text-align:center; transition:color 0.5s; }
-h2 { font-size:2rem; margin-bottom:2rem; font-family:'Poppins'; transition:color 0.5s; }
+h2 { font-size:2rem; margin-bottom:2rem; font-family:'Poppins'; transition:color 0.5s; 
+color: #222;}
 
 /* Projects */
 .project-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; }
@@ -260,37 +386,76 @@ form button {
 }
 form button:hover { background:var(--btn-hover-bg); }
 
-.social-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  padding: 2rem 0;
+
+.work-showcase {
   text-align: center;
+  padding: 3rem 1rem;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin: 2rem auto;
+  max-width: 900px;
 }
 
-.social-group h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--text-color);
+.work-showcase h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
 }
 
-.social-group .social-links {
+.work-actions {
   display: flex;
   justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  gap: 2rem;
 }
 
-.social-group .social-links a {
-  font-size: 24px;
-  color: rgb(2,33,255);
-  transition: transform 0.2s ease, color 0.3s ease;
+.work-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.social-group .social-links a:hover {
-  color: #00bcd4;
-  transform: scale(1.2);
+.icon-link,
+.btn-download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.icon-link i,
+.btn-download i {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon-link:hover,
+.btn-download:hover {
+  transform: scale(1.1);
+  color: #00bfff;
+}
+
+.btn-download {
+  color: white;
+  background-color: #00bfff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-download:hover {
+  background-color: #007acc;
+  color: #fff;
+}
+
+.icon-link span,
+.btn-download span {
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
 }
 
 html {
@@ -346,3 +511,15 @@ html {
 
 /* Footer */
 footer { background:var(--btn-bg); color:white; padding:2rem; text-align:center; }
+footer .social-links a {
+  margin: 0 10px; /* 10px space left and right */
+  font-size: 1.4rem; /* optional: makes icons slightly bigger */
+  color: #fff; /* optional: make icons white if not already */
+  transition: transform 0.3s ease;
+}
+
+footer .social-links a:hover {
+  transform: scale(1.2); /* optional: hover animation */
+  color: #00bfff; /* optional: hover color */
+}
+
