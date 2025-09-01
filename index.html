@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Biratu's Portfolio | Neon Pulse</title>
+    <title>Biratu's Portfolio</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -50,6 +50,7 @@
             overflow-x: hidden;
         }
 
+
         /* === Navbar: Glassmorphism Effect === */
         #navbar {
             position: fixed;
@@ -89,7 +90,16 @@
         }
 
         /* Hamburger */
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .hamburger { display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+  /* 👇 new additions */
+  position: fixed;    /* stays in place */
+  top: 20px;          /* adjust as needed */
+  right: 20px;        /* adjust as needed */
+  z-index: 999;      /* stays above content */ }
         .hamburger div { height: 3px; background: white; border-radius: 2px; transition: all 0.3s; }
         .hamburger.active div:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
         .hamburger.active div:nth-child(2) { opacity: 0; }
@@ -154,38 +164,138 @@
             box-shadow: 0 0 20px var(--glow-color);
         }
 /* animated cv and hire me */
-      .btn-container {
+    .btn-container {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: 30px;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 50px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
+  max-width: 100%;
+  letter-spacing: 0.5px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 119, 182, 0.3);
 }
 
+/* Differentiate button types with modern color gradients */
 .hire-btn {
-  background: #0077b6;   /* blue */
-  color: white;
+  
+  background: white;
+            color: var(--secondary-accent);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
 }
 
 .cv-btn {
-  background: #00b4d8;   /* light blue */
-  color: white;
+  background: linear-gradient(135deg, #00b4d8, #48cae4);
 }
 
+/* Hover with glowing + lift effect */
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Cool underline animation on hover */
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+
+/* 📱 Responsive adjustments */
+@media (max-width: 600px) {
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 90%;
+    text-align: center;
+    font-size: 15px;   /* smaller font on mobile */
+    padding: 12px; /* slightly reduced padding */
+  }
+  .hamburger div {
+    width: 20px;  /* shorter */
+    height: 2px;  /* thinner */
+  }
+}
+
+/* for my about photo */
+     .about-container {
+  display: flex;
+  align-items: flex-start;   /* align image with top of text */
+  gap: 20px;                 /* spacing between photo & text */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-photo {
+  flex: 0 0 180px;     /* fixed width for desktop */
+  max-width: 180px;    /* limit image size */
+  width: 100%;         
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;   /* keeps proportions neat */
+}
+
+
+/* Text styling can stay as you already have */
+.about-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* On mobile, stack photo above text */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-photo {
+    flex: none;
+    max-width: 60%;     /* smaller and centered on phones */
+    margin: 0 auto 20px auto;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
 
         /* === Headings & Sections === */
@@ -276,10 +386,27 @@
         }
         .back .project-links a:hover { background: rgba(255, 255, 255, 0.4); }
       
+      
+
       /* Blog Cards */
 .blog-section {
   padding: 4rem 2rem;
   text-align: center;
+}
+.blog-card .blog-image {
+  width: 100%;         /* makes image fit parent container */
+  height: auto;        /* keeps aspect ratio */
+  border-radius: 10px; /* rounded corners for a clean look */
+  object-fit: cover;   /* ensures image covers area nicely */
+  display: block;      /* removes inline gaps */
+  margin-bottom: 1rem; /* spacing below image */
+}
+
+/* Optional: handle very tall images */
+@media (min-width: 768px) {
+  .blog-card .blog-image {
+    max-height: 250px;   /* limit image height on bigger screens */
+  }
 }
 
 .blog-list {
@@ -613,33 +740,42 @@
 
         /* === Responsive Design === */
         @media(max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 4rem 1rem; }
-            
-            #navbar { padding: 1rem; }
-            #nav-menu {
-                position: fixed;
-                top: 70px; /* Aligned with navbar height */
-                left: -100%;
-                width: 70%;
-                max-width: 300px;
-                height: 100vh;
-                background: var(--nav-bg);
-                backdrop-filter: blur(15px);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 2rem;
-                gap: 1.5rem;
-                transition: left 0.3s ease-in-out;
-                border-right: 1px solid var(--primary-accent);
-            }
-            #nav-menu.active { left: 0; }
-            #navbar ul li { width: 100%; }
-            #navbar ul li a { display: block; width: 100%; }
-            .hamburger { display: flex; }
-            #dark-toggle { order: -1; margin-right: 1rem; }
-        }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+    section { padding: 4rem 1rem; }
+    
+    #navbar { padding: 1rem; }
+    #nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--nav-bg);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.2rem; /* reduced padding */
+        gap: 0.8rem; /* reduced gap */
+        transition: left 0.3s ease-in-out;
+        border-right: 1px solid var(--primary-accent);
+    }
+    #nav-menu.active { left: 0; }
+    
+    /* Reduce extra spacing in links */
+    #nav-menu a {
+        margin: 0;
+        padding: 0.5rem 0; /* tighter vertical padding */
+    }
+    
+    #navbar ul li { width: 100%; }
+    #navbar ul li a { display: block; width: 100%; }
+  
+    .hamburger { display: flex; }
+    #dark-toggle { order: -1; margin-right: 1rem; }
+}
+
     </style>
 </head>
 <body>
@@ -649,8 +785,10 @@
             <li><a href="#welcome-section">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+          <li><a href="#blog">Blogs</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-controls">
@@ -673,17 +811,18 @@
   <a href="#contact" class="btn hire-btn">
     <i class="fa-solid fa-handshake"></i> Hire Me
   </a>
-  <a href="https://bira35-cv.netlify.app/" target="_blank" class="btn cv-btn">
-    <i class="fa-solid fa-file-lines"></i> View My Animated CV
-  </a>
+  
 </div>
     </section>
 
-    <section id="about" data-aos="fade-right">
-        <h2><i class="fas fa-user-circle"></i> About Me</h2>
+    <section id="about" data-aos="fade-right">  
+      <h2><i class="fas fa-user-circle"></i> About Me</h2>
+      <div class="about-container">
+      <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/photo_2025-08-27_22-32-27.jpg" alt="My Bio Photo" class="about-photo">
         <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
             I’m a web designer with a solid foundation in mathematics, which enhances my problem-solving skills, logical thinking, and precision — essential qualities for crafting clean, functional, and responsive websites. I specialize in creating intuitive user experiences and modern, visually engaging designs. Proficient in HTML, CSS, and JavaScript, I’m committed to continuously expanding my expertise to deliver innovative, high-quality web solutions.
         </p>
+        </div>
     </section>
 
     <section id="projects" data-aos="fade-up">
@@ -707,7 +846,7 @@
                 <div class="project-content">
                     <div class="front">
                         <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/screen%20shoot%20of%20project%201%20eotc.jpg" alt="Church Project" />
-                        <p>Ethiopian Orthodox Church</p>
+                        <p>Ethiopian Orthodox Tewahido Church</p>
                     </div>
                     <div class="back">
                         <p>A responsive site for the EOTC, featuring service information and event schedules.</p>
@@ -720,7 +859,7 @@
              <div class="project-tile" data-aos="zoom-in" data-aos-delay="300">
                 <div class="project-content">
                     <div class="front">
-                        <img src="https://raw.githubusercontent.com/Biratu35/portfolio-website/refs/heads/main/folder-name/Screenshot%202025-05-30%20100820.jpg" alt="Coffee Cafe" />
+                        <img src="https://raw.githubusercontent.com/Biratu35/project2/refs/heads/main/ethio%20coffee.JPG" alt="Coffee Cafe" />
                         <p>Ethiopian Coffee Cafe</p>
                     </div>
                     <div class="back">
@@ -731,6 +870,50 @@
                     </div>
                 </div>
             </div>
+          
+          <div class="project-tile" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-content">
+                    <div class="front">
+                        <img src="https://raw.githubusercontent.com/Biratu35/School-Web/refs/heads/main/school%20web%20Screenshot%202025-06-24%20143634.jpg" alt="Art Gallery Project" />
+                        <p>School Web Site</p>
+                    </div>
+                    <div class="back">
+                        <p>A user-friendly website designed for a school, providing information for students, parents, and faculty.</p>
+                        <div class="project-links">
+                            <a href="https://school-we.netlify.app/" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <div class="project-tile" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-content">
+                    <div class="front">
+                        <img src="https://raw.githubusercontent.com/Biratu35/Interactive-Quiz-App/refs/heads/main/Screenshot%202025-06-20%20143912.jpg" alt="Art Gallery Project" />
+                        <p>Interactive Quiz App</p>
+                    </div>
+                    <div class="back">
+                        <p>An engaging web-based quiz application built with JavaScript for interactive learning and assessment.</p>
+                        <div class="project-links">
+                            <a href="https://interactive-quiz-ap.netlify.app/" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <div class="project-tile" data-aos="zoom-in" data-aos-delay="200">
+    <div class="project-content">
+        <div class="front">
+            <img src="https://raw.githubusercontent.com/Biratu35/login-page/refs/heads/main/login%20page.JPG" alt="Login Page Project" />
+            <p>Modern Login Page</p>
+        </div>
+        <div class="back">
+            <p>A clean and user-friendly login page built with HTML, CSS, and JavaScript, featuring modern design and responsive layout.</p>
+            <div class="project-links">
+                <a href="#" target="_blank">View Project</a>
+            </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </section>
     
@@ -740,18 +923,21 @@ Blog & Resources</h2>
   <div class="blog-list">
     
     <article class="blog-card" data-post="post1">
+      <img src="https://media.licdn.com/dms/image/v2/D4E22AQHli5O1cb3yYw/feedshare-shrink_2048_1536/B4EZgulUA4GcAs-/0/1753128202909?e=1758153600&v=beta&t=QZ9Zhaq5M3iJkMaOX1oBjjWu5-1UdwwoAMqLHBfC1Ms" alt="Blog cover" class="blog-image" />
       <h3>How each academic department connects to today’s skills</h3>
       <p>Discover the latest design styles that make websites stand out and attract more visitors...</p>
       <a href="#" class="read-more">Read More →</a>
     </article>
 
     <article class="blog-card" data-post="post2">
-      <h3>Why Every Artist Needs a Portfolio Website</h3>
-      <p>Having your own online space helps you sell your work, book clients, and showcase your talent...</p>
+      <img src="https://media.licdn.com/dms/image/v2/D4E22AQGvyEPl8SOJRw/feedshare-shrink_2048_1536/B4EZjtODWZIIAw-/0/1756326544210?e=1759363200&v=beta&t=THGcXti-9rBP5mqMZ4YaOUJsN9OdaWrMmDeVZZfQ1zQ" alt="Blog cover" class="blog-image" />
+      <h3>The Psychology of Natural Energy → Skills → Income</h3>
+      <p>We all have a source of natural energy inside us...</p>
       <a href="#" class="read-more">Read More →</a>
     </article>
 
     <article class="blog-card" data-post="post3">
+      <img src="https://media.licdn.com/dms/image/v2/D4E22AQEtS4ChdXKO0w/feedshare-shrink_1280/B4EZgdMAyDGcAk-/0/1752836346461?e=1758153600&v=beta&t=AyKdVncmDKj0GiVo8vsWyHlNHRlgwglYDg4Yhbkbq4k" alt="Blog cover" class="blog-image" />
       <h3>Why Your Website Matters More Than You Think</h3>
       <p>A good website without marketing = no visitors...</p>
       <a href="#" class="read-more">Read More →</a>
@@ -858,6 +1044,31 @@ Blog & Resources</h2>
       <p>Transform outdated sites into modern, fast, and user-friendly experiences.</p>
     </div>
     
+    <div class="service-card">
+  <i class="fas fa-square-root-alt"></i>
+  <h3>Mathematical Problem Solving</h3>
+  <p>Step-by-step solutions and explanations for advanced mathematics problems, tailored for students and professionals.</p>
+</div>
+
+<div class="service-card">
+  <i class="fas fa-chart-line"></i>
+  <h3>Data Analysis & Statistics</h3>
+  <p>Applying mathematical and statistical methods to analyze datasets and extract meaningful insights for research or business.</p>
+</div>
+
+<div class="service-card">
+  <i class="fas fa-chalkboard-teacher"></i>
+  <h3>Mathematics Tutoring</h3>
+  <p>Personalized online tutoring in calculus, algebra, and analysis to help learners achieve academic success.</p>
+</div>
+
+<div class="service-card">
+  <i class="fas fa-brain"></i>
+  <h3>Mathematical Modeling</h3>
+  <p>Building and analyzing models to solve real-world problems in science, engineering, and economics.</p>
+</div>
+
+    
   </div>
 </section>
 
@@ -928,10 +1139,10 @@ Blog & Resources</h2>
         </form>
       
       <div class="btn-container">
-        
-  <a href="https://bira35-cv.netlify.app/" target="_blank" class="btn cv-btn">
-    <i class="fa-solid fa-file-lines"></i> View My Animated CV
+        <a href="#" class="btn hire-btn">
+    <i class="fas fa-download"></i> Download CV (PDF)
   </a>
+  
 </div>
     </section>
 
@@ -966,6 +1177,7 @@ Blog & Resources</h2>
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+          
         });
 
         // Close menu when a link is clicked
@@ -1006,7 +1218,7 @@ const blogPosts = {
   },
   post2: {
     title: "Why Every Artist Needs a Portfolio Website",
-    body: "A personal website is a powerful way to showcase your work, sell art, and control how your audience views your brand. Unlike social media, you own the space and can tailor it exactly to your style..."
+    body: "The Psychology of Natural Energy → Skills → Income We all have a source of natural energy inside us — curiosity, passion, even struggles. But most of us let it stay buried under fear, doubt, or distraction. 👉 When we dig it out, that energy becomes fuel for growth. Here’s the flow I’ve learned: 1️⃣ Energy → Notice what excites you, what keeps you focused, where time flies. 2️⃣ Skill → Channel that energy into consistent practice. 3️⃣ Value → Use your skill to solve real problems for people. 4️⃣ Income → Exchange that value for money. Example: My own energy for problem-solving (from my math background) now fuels my web design journey. What started as curiosity is slowly becoming a skill, and soon, a way to earn. The psychology is simple: Energy → Skills → Value → Money. Question for you: Where is YOUR natural energy buried, and how can you channel it into a skill that pays?"
   },
   post3: {
     title: "Why Your Website Matters More Than You Think",
@@ -1041,6 +1253,7 @@ window.addEventListener("click", e => {
     popup.style.display = "none";
   }
 });
+
 
     </script>
 </body>
