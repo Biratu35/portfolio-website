@@ -6,7 +6,7 @@ Welcome to my personal portfolio website! This site showcases my skills, project
 
 ## 🌐 Live Demo
 
-[View Live Site](https://biratu-portfolio-website.netlify.app/)
+[View Live Site]((https://bira35.netlify.app/))
 
 ## 🛠️ Technologies Used
 
